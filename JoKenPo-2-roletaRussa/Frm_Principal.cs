@@ -5,15 +5,24 @@ using System.Windows.Forms;
 
 namespace JoKenPo_2_roletaRussa
 {
+    
     public partial class Frm_Principal : Form
     {
+        public string NomeJogador { get; set; }
         public Frm_Principal()
         {
             InitializeComponent();
         }
+        public void AtualizarNome()
+        {
+            Lbl_ExibeNome.Text = "Jogador: " + NomeJogador;
+        }
 
         List<string> opcoesSelecionadas = new List<string>();
         Random random = new Random();
+
+        // Lista de opções possíveis (pedra, papel, tesoura)
+        List<string> opcoes = new List<string> { "pedra", "papel", "tesoura" };
 
         private void Opc_Pedra_Click(object sender, EventArgs e)
         {
@@ -54,26 +63,31 @@ namespace JoKenPo_2_roletaRussa
             // Se o jogador selecionou duas opções, o bot faz sua jogada
             if (opcoesSelecionadas.Count == 2)
             {
-                DefinirImagemExcluida();
+                DefinirImagemExcluida();  // Definir as imagens excluídas
                 JogadaBot(); // O Bot joga logo após a seleção do jogador
             }
         }
 
         private void DefinirImagemExcluida()
         {
-            // Verifica e exclui as imagens das opções não selecionadas
-            if (!opcoesSelecionadas.Contains("pedra"))
-                Opc_Pedra.Image = Properties.Resources.mao_cx;
-            if (!opcoesSelecionadas.Contains("papel"))
-                Opc_Papel.Image = Properties.Resources.papel_de_mao_cx;
-            if (!opcoesSelecionadas.Contains("tesoura"))
-                Opc_Tesoura.Image = Properties.Resources.tesouras_cx;
+            // Definir a imagem "X" para a opção excluída pelo bot
+            string excluida = opcoes.Except(opcoesSelecionadas).First();
+            switch (excluida)
+            {
+                case "pedra":
+                    Opc_Pedra_Bot.Image = Properties.Resources.mao_cx;  // Imagem de "X" na pedra
+                    break;
+                case "papel":
+                    Opc_Papel_Bot.Image = Properties.Resources.papel_de_mao_cx;  // Imagem de "X" no papel
+                    break;
+                case "tesoura":
+                    Opc_Tesoura_Bot.Image = Properties.Resources.tesouras_cx;  // Imagem de "X" na tesoura
+                    break;
+            }
         }
 
         private void JogadaBot()
         {
-            string[] opcoes = { "pedra", "papel", "tesoura" };
-
             // Escolher duas opções aleatórias para o Bot
             List<string> opcoesBot = opcoes.OrderBy(x => random.Next()).Take(2).ToList();
 
