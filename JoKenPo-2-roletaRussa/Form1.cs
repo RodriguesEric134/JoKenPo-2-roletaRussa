@@ -17,52 +17,51 @@ namespace JoKenPo_2_roletaRussa
 
         private void Opc_Pedra_Click(object sender, EventArgs e)
         {
-            SelecionarOpcao(Opc_Pedra, "pedra");
+            SelecionarOpcao("pedra");
         }
 
         private void Opc_Papel_Click(object sender, EventArgs e)
         {
-            SelecionarOpcao(Opc_Papel, "papel");
+            SelecionarOpcao("papel");
         }
 
         private void Opc_Tesoura_Click(object sender, EventArgs e)
         {
-            SelecionarOpcao(Opc_Tesoura, "tesoura");
+            SelecionarOpcao("tesoura");
         }
 
-        private void SelecionarOpcao(PictureBox opcao, string nome)
+        private void SelecionarOpcao(string nome)
         {
+            // Impede a seleção da mesma opção várias vezes
             if (opcoesSelecionadas.Contains(nome)) return;
 
             opcoesSelecionadas.Add(nome);
 
+            // Exibe a imagem da opção selecionada
             switch (nome)
             {
                 case "pedra":
-                    opcao.Image = Properties.Resources.mao_circulada;
+                    Opc_Pedra.Image = Properties.Resources.mao_circulada;
                     break;
                 case "papel":
-                    opcao.Image = Properties.Resources.papel_de_mao_circulada;
+                    Opc_Papel.Image = Properties.Resources.papel_de_mao_circulada;
                     break;
                 case "tesoura":
-                    opcao.Image = Properties.Resources.tesouras_circulada;
+                    Opc_Tesoura.Image = Properties.Resources.tesouras_circulada;
                     break;
             }
 
+            // Se o jogador selecionou duas opções, o bot faz sua jogada
             if (opcoesSelecionadas.Count == 2)
             {
                 DefinirImagemExcluida();
                 JogadaBot(); // O Bot joga logo após a seleção do jogador
             }
-
-            if (opcoesSelecionadas.Count > 2)
-            {
-                ResetarSelecoes();
-            }
         }
 
         private void DefinirImagemExcluida()
         {
+            // Verifica e exclui as imagens das opções não selecionadas
             if (!opcoesSelecionadas.Contains("pedra"))
                 Opc_Pedra.Image = Properties.Resources.mao_cx;
             if (!opcoesSelecionadas.Contains("papel"))
@@ -78,7 +77,7 @@ namespace JoKenPo_2_roletaRussa
             // Escolher duas opções aleatórias para o Bot
             List<string> opcoesBot = opcoes.OrderBy(x => random.Next()).Take(2).ToList();
 
-            // Definir imagens para as opções selecionadas
+            // Definir imagens para as opções selecionadas pelo bot
             foreach (string opcao in opcoesBot)
             {
                 switch (opcao)
@@ -95,7 +94,7 @@ namespace JoKenPo_2_roletaRussa
                 }
             }
 
-            // Definir imagem "X" para a opção excluída
+            // Definir a imagem "X" para a opção excluída pelo bot
             string excluida = opcoes.Except(opcoesBot).First();
             switch (excluida)
             {
@@ -109,88 +108,22 @@ namespace JoKenPo_2_roletaRussa
                     Opc_Tesoura_Bot.Image = Properties.Resources.tesouras_cx;
                     break;
             }
-        }
 
-        private void ResetarSelecoes()
-        {
-            opcoesSelecionadas.Clear();
-            Opc_Pedra.Image = null;
-            Opc_Papel.Image = null;
-            Opc_Tesoura.Image = null;
-            Opc_Pedra_Bot.Image = null;
-            Opc_Papel_Bot.Image = null;
-            Opc_Tesoura_Bot.Image = null;
-        }
-
-        // Função para fazer o jogador escolher uma das duas opções selecionadas
-        private void EscolherOpcaoFinal(PictureBox opcao, string nome)
-        {
-            // Remover as imagens das opções não escolhidas
-            if (nome == "pedra")
-            {
-                Opc_Pedra.Image = Properties.Resources.mao;
-                Opc_Papel.Image = null;
-                Opc_Tesoura.Image = null;
-            }
-            else if (nome == "papel")
-            {
-                Opc_Papel.Image = Properties.Resources.papel_de_mao;
-                Opc_Pedra.Image = null;
-                Opc_Tesoura.Image = null;
-            }
-            else if (nome == "tesoura")
-            {
-                Opc_Tesoura.Image = Properties.Resources.tesouras;
-                Opc_Pedra.Image = null;
-                Opc_Papel.Image = null;
-            }
-
-            // Agora, o bot escolhe aleatoriamente uma opção final entre as opções que ele selecionou
-            EscolherOpcaoFinalBot();
-        }
-
-        // Função para o bot escolher aleatoriamente uma das opções finais
-        private void EscolherOpcaoFinalBot()
-        {
-            string[] opcoes = { "pedra", "papel", "tesoura" };
-
-            // O bot vai escolher aleatoriamente uma das opções que ele selecionou
-            string opcaoEscolhida = opcoes.OrderBy(x => random.Next()).First();
-
-            // Exibir a imagem do bot conforme a escolha final
-            if (opcaoEscolhida == "pedra")
-            {
-                Opc_Pedra_Bot.Image = Properties.Resources.mao;
-                Opc_Papel_Bot.Image = null;
-                Opc_Tesoura_Bot.Image = null;
-            }
-            else if (opcaoEscolhida == "papel")
-            {
-                Opc_Papel_Bot.Image = Properties.Resources.papel_de_mao;
-                Opc_Pedra_Bot.Image = null;
-                Opc_Tesoura_Bot.Image = null;
-            }
-            else if (opcaoEscolhida == "tesoura")
-            {
-                Opc_Tesoura_Bot.Image = Properties.Resources.tesouras;
-                Opc_Pedra_Bot.Image = null;
-                Opc_Papel_Bot.Image = null;
-            }
-
-            // Após a escolha, podemos fazer a comparação
+            // Comparar as escolhas do jogador e do bot
             CompararEscolhas();
         }
 
         private void CompararEscolhas()
         {
-            // Aqui você compara as opções do jogador e do bot
             string jogadorEscolha = opcoesSelecionadas.First(); // Como temos apenas uma escolha final por jogador
             string botEscolha = string.Empty;
 
+            // Identificar a opção escolhida pelo bot
             if (Opc_Pedra_Bot.Image != null) botEscolha = "pedra";
             else if (Opc_Papel_Bot.Image != null) botEscolha = "papel";
             else if (Opc_Tesoura_Bot.Image != null) botEscolha = "tesoura";
 
+            // Comparar as escolhas e definir o resultado
             string resultado = string.Empty;
 
             if (jogadorEscolha == botEscolha)
@@ -208,7 +141,22 @@ namespace JoKenPo_2_roletaRussa
                 resultado = "Você Perdeu!";
             }
 
+            // Mostrar o resultado em uma caixa de mensagem
             MessageBox.Show(resultado);
+
+            // Resetar as seleções para o próximo round
+            ResetarSelecoes();
+        }
+
+        private void ResetarSelecoes()
+        {
+            opcoesSelecionadas.Clear();
+            Opc_Pedra.Image = Properties.Resources.mao;
+            Opc_Papel.Image = Properties.Resources.papel_de_mao;
+            Opc_Tesoura.Image = Properties.Resources.tesouras;
+            Opc_Pedra_Bot.Image = Properties.Resources.mao;
+            Opc_Papel_Bot.Image = Properties.Resources.papel_de_mao;
+            Opc_Tesoura_Bot.Image = Properties.Resources.tesouras;
         }
     }
 }
