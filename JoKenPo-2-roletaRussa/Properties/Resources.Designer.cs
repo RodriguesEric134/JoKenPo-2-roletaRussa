@@ -63,6 +63,16 @@ namespace JoKenPo_2_roletaRussa.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ganhou {
+            get {
+                object obj = ResourceManager.GetObject("ganhou", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mao {
             get {
                 object obj = ResourceManager.GetObject("mao", resourceCulture);
@@ -86,6 +96,16 @@ namespace JoKenPo_2_roletaRussa.Properties {
         internal static System.Drawing.Bitmap mao_cx {
             get {
                 object obj = ResourceManager.GetObject("mao_cx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap morreu {
+            get {
+                object obj = ResourceManager.GetObject("morreu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -137,6 +157,36 @@ namespace JoKenPo_2_roletaRussa.Properties {
             get {
                 object obj = ResourceManager.GetObject("pedra_papel_tesoura1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roleta_russa {
+            get {
+                object obj = ResourceManager.GetObject("roleta_russa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roleta_russa_sem_tiro {
+            get {
+                object obj = ResourceManager.GetObject("roleta_russa_sem_tiro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roleta_russa_tiro {
+            get {
+                object obj = ResourceManager.GetObject("roleta_russa_tiro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

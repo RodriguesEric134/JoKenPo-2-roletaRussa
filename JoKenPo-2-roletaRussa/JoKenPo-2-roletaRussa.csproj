@@ -58,6 +58,18 @@
     <Compile Include="Frm_Identificacao.Designer.cs">
       <DependentUpon>Frm_Identificacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Resultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Resultado.Designer.cs">
+      <DependentUpon>Frm_Resultado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Roleta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Roleta.Designer.cs">
+      <DependentUpon>Frm_Roleta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm_Principal.resx">
@@ -65,6 +77,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Identificacao.resx">
       <DependentUpon>Frm_Identificacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Resultado.resx">
+      <DependentUpon>Frm_Resultado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Roleta.resx">
+      <DependentUpon>Frm_Roleta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,7 +138,12 @@
     <None Include="Resources\pedra-papel-tesoura.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IMG\ganhou.jpg" />
+    <Content Include="IMG\morreu.gif" />
     <Content Include="IMG\pedra-papel-tesoura.png" />
+    <Content Include="IMG\roleta-russa-sem-tiro.JPG" />
+    <Content Include="IMG\roleta-russa-tiro.JPG" />
+    <Content Include="IMG\roleta-russa.jpg" />
     <None Include="Resources\pedra-papel-tesoura.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

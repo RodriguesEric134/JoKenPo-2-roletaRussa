@@ -107,8 +107,24 @@ namespace JoKenPo_2_roletaRussa
             else
                 resultado = "Você Perdeu!";
 
+            // Atualiza a pontuação
             AtualizarPontuacao(resultado);
             MessageBox.Show(resultado);
+
+            // Se o resultado for "Você Perdeu!", chama a roleta russa
+            if (resultado == "Você Perdeu!")
+            {
+                // Passa o nome do jogador e a PictureBox associada ao jogador ou bot
+                Frm_Roleta frmRoleta = new Frm_Roleta(NomeJogador, Opc_Pedra);  // Passe a PictureBox relacionada ao jogador aqui
+                frmRoleta.ShowDialog();
+            }
+            else if (resultado == "Você Ganhou!")
+            {
+                // Caso o bot perca
+                Frm_Roleta frmRoletaBot = new Frm_Roleta("Bot", Opc_Pedra_Bot);  // Passe a PictureBox relacionada ao bot aqui
+                frmRoletaBot.ShowDialog();
+            }
+
             ResetarSelecoes();
         }
 
