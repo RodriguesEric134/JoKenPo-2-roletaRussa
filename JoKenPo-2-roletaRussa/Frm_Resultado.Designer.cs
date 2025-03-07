@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.Lbl_Resultado = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Pic_Imagem = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_Imagem)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_Resultado
@@ -42,28 +42,28 @@
             this.Lbl_Resultado.TabIndex = 0;
             this.Lbl_Resultado.Text = "Você Morreu!/Ganhou!";
             // 
-            // pictureBox1
+            // Pic_Imagem
             // 
-            this.pictureBox1.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.morreu;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(171, 157);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Pic_Imagem.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.morreu;
+            this.Pic_Imagem.Location = new System.Drawing.Point(13, 12);
+            this.Pic_Imagem.Name = "Pic_Imagem";
+            this.Pic_Imagem.Size = new System.Drawing.Size(171, 157);
+            this.Pic_Imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Pic_Imagem.TabIndex = 1;
+            this.Pic_Imagem.TabStop = false;
             // 
             // Frm_Resultado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(356, 181);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Pic_Imagem);
             this.Controls.Add(this.Lbl_Resultado);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Resultado";
             this.Text = "Frm_Resultado";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pic_Imagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label Lbl_Resultado;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Pic_Imagem;
     }
 }

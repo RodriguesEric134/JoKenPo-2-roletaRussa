@@ -12,9 +12,13 @@ namespace JoKenPo_2_roletaRussa
 {
     public partial class Frm_Resultado : Form
     {
-        public Frm_Resultado()
+        public Frm_Resultado(string nomeImagem, string mensagem)
         {
             InitializeComponent();
+            Image MyImage = (Image)global::JoKenPo_2_roletaRussa.Properties.Resources.ResourceManager.GetObject(nomeImagem);
+            Pic_Imagem.Image = MyImage;
+            Lbl_Resultado.Text = mensagem;
         }
+        
     }
 }

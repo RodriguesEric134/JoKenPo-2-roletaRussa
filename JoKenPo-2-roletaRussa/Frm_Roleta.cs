@@ -12,16 +12,13 @@ namespace JoKenPo_2_roletaRussa
 {
 
     public partial class Frm_Roleta : Form
-    {
-        private string jogador;
+    {        
         private PictureBox opcaoImagem;
         private Random random = new Random();
 
         public Frm_Roleta(string jogador, PictureBox opcaoImagem)
         {
-            InitializeComponent();
-            this.jogador = jogador;
-            this.opcaoImagem = opcaoImagem;
+            InitializeComponent();                      
         }
 
         public void JogarRoletaRussa(string jogador)
@@ -31,7 +28,7 @@ namespace JoKenPo_2_roletaRussa
             Lbl_ExibeRoleta.Text = $"{jogador} joga a roleta russa";
 
             // Simula a roleta russa com um número aleatório entre 1 e 6
-            int resultadoRoleta = random.Next(1, 7);  // 1 a 6
+            int resultadoRoleta = random.Next(1,7);  // 1 a 6
 
             // A munição está na posição 1
             if (resultadoRoleta == 1)
@@ -43,6 +40,8 @@ namespace JoKenPo_2_roletaRussa
                     // Exibe a imagem de tiro
                     opcaoImagem.Image = Properties.Resources.roleta_russa_tiro;
                     MessageBox.Show("A roleta russa disparou! Você perdeu!");
+                    Frm_Resultado DB = new Frm_Resultado("morreu", "Jogador Perdeu!");
+                    DB.ShowDialog();
                 }
                 else
                 {
@@ -50,6 +49,8 @@ namespace JoKenPo_2_roletaRussa
                     // Exibe a imagem de tiro
                     opcaoImagem.Image = Properties.Resources.roleta_russa_tiro;
                     MessageBox.Show("A roleta russa disparou! O Bot perdeu!");
+                    Frm_Resultado DB = new Frm_Resultado("Ganhou", "Jogador ganhou!");
+                    DB.ShowDialog();
                 }
             }
             else
