@@ -34,17 +34,11 @@ namespace JoKenPo_2_roletaRussa
                 jogadores[nomeJogador] = (0, 0, 0);
             }
 
-            // Criar o formulário Frm_Principal
-            Frm_Principal f = new Frm_Principal();
+            // Criar o formulário Frm_Principal passando o dicionário e o nome do jogador
+            Frm_Principal f = new Frm_Principal(jogadores, nomeJogador);
 
-            // Passar o nome para o Frm_Principal
-            f.NomeJogador = nomeJogador;
-
-            // Atualizar a label com o nome do jogador
-            f.AtualizarNome();
-
-            // Mostrar o formulário
             f.ShowDialog();
         }
+
     }
 }

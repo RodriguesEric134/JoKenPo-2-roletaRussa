@@ -68,8 +68,9 @@
             // 
             // Opc_Tesoura_Bot
             // 
+            this.Opc_Tesoura_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Tesoura_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.tesouras;
-            this.Opc_Tesoura_Bot.Location = new System.Drawing.Point(289, 242);
+            this.Opc_Tesoura_Bot.Location = new System.Drawing.Point(282, 279);
             this.Opc_Tesoura_Bot.Name = "Opc_Tesoura_Bot";
             this.Opc_Tesoura_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Tesoura_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,8 +79,9 @@
             // 
             // Opc_Papel_Bot
             // 
+            this.Opc_Papel_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Papel_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.papel_de_mao;
-            this.Opc_Papel_Bot.Location = new System.Drawing.Point(289, 146);
+            this.Opc_Papel_Bot.Location = new System.Drawing.Point(282, 183);
             this.Opc_Papel_Bot.Name = "Opc_Papel_Bot";
             this.Opc_Papel_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Papel_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,8 +90,9 @@
             // 
             // Opc_Pedra_Bot
             // 
+            this.Opc_Pedra_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Pedra_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.mao;
-            this.Opc_Pedra_Bot.Location = new System.Drawing.Point(289, 50);
+            this.Opc_Pedra_Bot.Location = new System.Drawing.Point(282, 87);
             this.Opc_Pedra_Bot.Name = "Opc_Pedra_Bot";
             this.Opc_Pedra_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Pedra_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,8 +101,9 @@
             // 
             // Opc_Tesoura
             // 
+            this.Opc_Tesoura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Opc_Tesoura.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.tesouras;
-            this.Opc_Tesoura.Location = new System.Drawing.Point(12, 242);
+            this.Opc_Tesoura.Location = new System.Drawing.Point(12, 279);
             this.Opc_Tesoura.Name = "Opc_Tesoura";
             this.Opc_Tesoura.Size = new System.Drawing.Size(90, 90);
             this.Opc_Tesoura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,8 +113,9 @@
             // 
             // Opc_Papel
             // 
+            this.Opc_Papel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Opc_Papel.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.papel_de_mao;
-            this.Opc_Papel.Location = new System.Drawing.Point(12, 146);
+            this.Opc_Papel.Location = new System.Drawing.Point(12, 183);
             this.Opc_Papel.Name = "Opc_Papel";
             this.Opc_Papel.Size = new System.Drawing.Size(90, 90);
             this.Opc_Papel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,8 +125,9 @@
             // 
             // Opc_Pedra
             // 
+            this.Opc_Pedra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Opc_Pedra.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.mao;
-            this.Opc_Pedra.Location = new System.Drawing.Point(12, 50);
+            this.Opc_Pedra.Location = new System.Drawing.Point(12, 87);
             this.Opc_Pedra.Name = "Opc_Pedra";
             this.Opc_Pedra.Size = new System.Drawing.Size(90, 90);
             this.Opc_Pedra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,9 +139,9 @@
             // 
             this.Lbl_X.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_X.ForeColor = System.Drawing.Color.Red;
-            this.Lbl_X.Location = new System.Drawing.Point(160, 159);
+            this.Lbl_X.Location = new System.Drawing.Point(155, 192);
             this.Lbl_X.Name = "Lbl_X";
-            this.Lbl_X.Size = new System.Drawing.Size(77, 77);
+            this.Lbl_X.Size = new System.Drawing.Size(73, 73);
             this.Lbl_X.TabIndex = 8;
             this.Lbl_X.Text = "X";
             // 
@@ -143,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 344);
+            this.ClientSize = new System.Drawing.Size(384, 397);
             this.Controls.Add(this.Lbl_X);
             this.Controls.Add(this.Lbl_NomeBot);
             this.Controls.Add(this.Opc_Tesoura_Bot);

@@ -8,15 +8,31 @@ namespace JoKenPo_2_roletaRussa
     
     public partial class Frm_Principal : Form
     {
+        private Dictionary<string, (int vitórias, int empates, int derrotas)> jogadores;
         public string NomeJogador { get; set; }
-        public Frm_Principal()
+
+        // Construtor que recebe o dicionário e o nome do jogador
+        public Frm_Principal(Dictionary<string, (int, int, int)> jogadoresRecebido, string nomeJogador)
         {
             InitializeComponent();
+            this.jogadores = jogadoresRecebido;
+            this.NomeJogador = nomeJogador;
+            AtualizarNome(); // Atualiza a label ao abrir o formulário
         }
+
         public void AtualizarNome()
         {
-            Lbl_ExibeNome.Text = "Jogador: " + NomeJogador;
+            if (jogadores.ContainsKey(NomeJogador))
+            {
+                var (vitorias, empates, derrotas) = jogadores[NomeJogador];
+                Lbl_ExibeNome.Text = $"Jogador: {NomeJogador} \n| Vitórias: {vitorias} | Empates: {empates} | Derrotas: {derrotas}";
+            }
+            else
+            {
+                Lbl_ExibeNome.Text = $"Jogador: {NomeJogador} | Sem registros";
+            }
         }
+
 
         List<string> opcoesSelecionadas = new List<string>();
         Random random = new Random();
@@ -154,6 +170,7 @@ namespace JoKenPo_2_roletaRussa
             {
                 resultado = "Você Perdeu!";
             }
+            AtualizarPontuacao(resultado);
 
             // Mostrar o resultado em uma caixa de mensagem
             MessageBox.Show(resultado);
@@ -161,6 +178,24 @@ namespace JoKenPo_2_roletaRussa
             // Resetar as seleções para o próximo round
             ResetarSelecoes();
         }
+        private void AtualizarPontuacao(string resultado)
+        {
+            if (jogadores.ContainsKey(NomeJogador))
+            {
+                var (vitorias, empates, derrotas) = jogadores[NomeJogador];
+
+                if (resultado == "Você Ganhou!") vitorias++;
+                else if (resultado == "Empate!") empates++;
+                else if (resultado == "Você Perdeu!") derrotas++;
+
+                // Atualiza os valores no dicionário
+                jogadores[NomeJogador] = (vitorias, empates, derrotas);
+            }
+
+            // Atualiza a exibição
+            AtualizarNome();
+        }
+
 
         private void ResetarSelecoes()
         {
@@ -172,5 +207,7 @@ namespace JoKenPo_2_roletaRussa
             Opc_Papel_Bot.Image = Properties.Resources.papel_de_mao;
             Opc_Tesoura_Bot.Image = Properties.Resources.tesouras;
         }
+
+        
     }
 }
