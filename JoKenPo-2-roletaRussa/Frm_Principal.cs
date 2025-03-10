@@ -12,9 +12,20 @@ namespace JoKenPo_2_roletaRussa
         private List<string> opcoesSelecionadas = new List<string>();
         private List<string> opcoesBot = new List<string>();
         private Random random = new Random();
-        private bool escolhaFinalJogador = false;
+        private bool faseFinal = false;
+
 
         List<string> opcoes = new List<string> { "pedra", "papel", "tesoura" };
+
+        public Frm_Principal(Dictionary<string, (int, int, int)> jogadoresRecebido, string nomeJogador)
+        {
+            InitializeComponent();
+            this.jogadores = jogadoresRecebido;
+            this.NomeJogador = nomeJogador;
+            AtualizarNome();
+        }
+
+        // Atualiza o nome do jogador e sua pontuação na interface
         public void AtualizarNome()
         {
             if (jogadores.ContainsKey(NomeJogador))
@@ -28,13 +39,18 @@ namespace JoKenPo_2_roletaRussa
             }
         }
 
-
-        public Frm_Principal(Dictionary<string, (int, int, int)> jogadoresRecebido, string nomeJogador)
+        // Atualiza a pontuação do jogador com base no resultado
+        private void AtualizarPontuacao(string resultado)
         {
-            InitializeComponent();
-            this.jogadores = jogadoresRecebido;
-            this.NomeJogador = nomeJogador;
-            AtualizarNome();
+            if (jogadores.ContainsKey(NomeJogador))
+            {
+                var (vitorias, empates, derrotas) = jogadores[NomeJogador];
+                if (resultado == "Você Ganhou!") vitorias++;
+                else if (resultado == "Empate!") empates++;
+                else derrotas++;
+                jogadores[NomeJogador] = (vitorias, empates, derrotas);
+            }
+            AtualizarNome(); // Atualiza a exibição do nome e pontuação
         }
 
         private void Opc_Pedra_Click(object sender, EventArgs e) => SelecionarOpcao("pedra");
@@ -43,8 +59,9 @@ namespace JoKenPo_2_roletaRussa
 
         private void SelecionarOpcao(string nome)
         {
-            if (!escolhaFinalJogador)
+            if (!faseFinal)
             {
+                // Fase 1: Selecionar 2 mãos
                 if (opcoesSelecionadas.Contains(nome)) return;
                 opcoesSelecionadas.Add(nome);
                 ExibirImagemEscolha(nome, true);
@@ -52,11 +69,14 @@ namespace JoKenPo_2_roletaRussa
                 if (opcoesSelecionadas.Count == 2)
                 {
                     JogadaBotInicial();
+                    faseFinal = true; // Avança para a fase final
+                    MessageBox.Show("Agora escolha sua jogada final!");
                 }
             }
             else
             {
-                escolhaFinalJogador = false;
+                // Fase 2: Escolher 1 mão entre as 2 selecionadas
+                if (!opcoesSelecionadas.Contains(nome)) return;
                 DefinirEscolhaFinal(nome, true);
                 EscolhaFinalBot();
             }
@@ -64,17 +84,17 @@ namespace JoKenPo_2_roletaRussa
 
         private void JogadaBotInicial()
         {
+            // Bot seleciona 2 mãos aleatoriamente
             opcoesBot = opcoes.OrderBy(x => random.Next()).Take(2).ToList();
             foreach (string opcao in opcoesBot)
             {
                 ExibirImagemEscolha(opcao, false);
             }
-            MessageBox.Show("Agora escolha sua jogada final!");
-            escolhaFinalJogador = true;
         }
 
         private void EscolhaFinalBot()
         {
+            // Bot escolhe 1 mão entre as 2 selecionadas
             string escolhaFinal = opcoesBot[random.Next(opcoesBot.Count)];
             DefinirEscolhaFinal(escolhaFinal, false);
             CompararEscolhas();
@@ -90,6 +110,9 @@ namespace JoKenPo_2_roletaRussa
             {
                 opcoesBot = new List<string> { escolha };
             }
+
+            // Atualiza as imagens para a fase final
+            ExibirImagemEscolha(escolha, jogador);
         }
 
         private void CompararEscolhas()
@@ -111,52 +134,97 @@ namespace JoKenPo_2_roletaRussa
             AtualizarPontuacao(resultado);
             MessageBox.Show(resultado);
 
-            // Se o resultado for "Você Perdeu!", chama a roleta russa
+            // Chama a roleta russa se o jogador ou bot perder
             if (resultado == "Você Perdeu!")
             {
-                // Passa o nome do jogador e a PictureBox associada ao jogador ou bot
-                Frm_Roleta frmRoleta = new Frm_Roleta(NomeJogador, Opc_Pedra);  // Passe a PictureBox relacionada ao jogador aqui
-                frmRoleta.ShowDialog();
+                Frm_Roleta roleta = new Frm_Roleta("Jogador");
+                roleta.ShowDialog(); // Exibe o formulário da roleta russa
+
+                // Verifica o resultado da roleta russa
+                if (roleta.ResultadoRoleta == "Derrota")
+                {                    
+                    jogadores[NomeJogador] = (0, 0, 0); // Zera vitórias, empates e derrotas
+                    AtualizarNome(); // Atualiza a exibição na interface
+                }
+                
             }
             else if (resultado == "Você Ganhou!")
             {
-                // Caso o bot perca
-                Frm_Roleta frmRoletaBot = new Frm_Roleta("Bot", Opc_Pedra_Bot);  // Passe a PictureBox relacionada ao bot aqui
-                frmRoletaBot.ShowDialog();
+                Frm_Roleta roleta = new Frm_Roleta("Bot");
+                roleta.ShowDialog(); // Exibe o formulário da roleta russa
+              
             }
 
+            // Reseta as seleções para uma nova rodada
             ResetarSelecoes();
-        }
-
-        private void AtualizarPontuacao(string resultado)
-        {
-            if (jogadores.ContainsKey(NomeJogador))
-            {
-                var (vitorias, empates, derrotas) = jogadores[NomeJogador];
-                if (resultado == "Você Ganhou!") vitorias++;
-                else if (resultado == "Empate!") empates++;
-                else derrotas++;
-                jogadores[NomeJogador] = (vitorias, empates, derrotas);
-            }
-            AtualizarNome();
         }
 
         private void ExibirImagemEscolha(string escolha, bool jogador)
         {
+            // Define o dicionário de imagens com base na escolha
             var imagens = new Dictionary<string, PictureBox>
-            {
-                { "pedra", jogador ? Opc_Pedra : Opc_Pedra_Bot },
-                { "papel", jogador ? Opc_Papel : Opc_Papel_Bot },
-                { "tesoura", jogador ? Opc_Tesoura : Opc_Tesoura_Bot }
-            };
-            imagens[escolha].Image = Properties.Resources.mao_circulada;
-        }
+    {
+        { "pedra", jogador ? Opc_Pedra : Opc_Pedra_Bot },
+        { "papel", jogador ? Opc_Papel : Opc_Papel_Bot },
+        { "tesoura", jogador ? Opc_Tesoura : Opc_Tesoura_Bot }
+    };
 
+            // Define a imagem com base na escolha
+            switch (escolha)
+            {
+                case "pedra":
+                    imagens[escolha].Image = Properties.Resources.mao_circulada;
+                    break;
+                case "papel":
+                    imagens[escolha].Image = Properties.Resources.papel_de_mao_circulada;
+                    break;
+                case "tesoura":
+                    imagens[escolha].Image = Properties.Resources.tesouras_circulada;
+                    break;
+            }
+
+            // Aplica o "X" nas mãos não selecionadas
+            var opcoesSelecionadasAtuais = jogador ? opcoesSelecionadas : opcoesBot;
+            foreach (var opcao in opcoes)
+            {
+                if (!opcoesSelecionadasAtuais.Contains(opcao))
+                {
+                    PictureBox imagemNaoSelecionada = null;
+                    if (opcao == "pedra")
+                        imagemNaoSelecionada = jogador ? Opc_Pedra : Opc_Pedra_Bot;
+                    else if (opcao == "papel")
+                        imagemNaoSelecionada = jogador ? Opc_Papel : Opc_Papel_Bot;
+                    else if (opcao == "tesoura")
+                        imagemNaoSelecionada = jogador ? Opc_Tesoura : Opc_Tesoura_Bot;
+
+                    if (imagemNaoSelecionada != null)
+                    {
+                        // Aplica a imagem do "X"
+                        switch (opcao)
+                        {
+                            case "pedra":
+                                imagemNaoSelecionada.Image = Properties.Resources.mao_cx;
+                                break;
+                            case "papel":
+                                imagemNaoSelecionada.Image = Properties.Resources.papel_de_mao_cx;
+                                break;
+                            case "tesoura":
+                                imagemNaoSelecionada.Image = Properties.Resources.tesouras_cx;
+                                break;
+                        }
+
+                        imagemNaoSelecionada.Refresh(); // Atualiza o PictureBox
+                    }
+                }
+            }
+        }
         private void ResetarSelecoes()
         {
-            escolhaFinalJogador = false;
+            faseFinal = false;
             opcoesSelecionadas.Clear();
             opcoesBot.Clear();
+
+            // Redefine as imagens para o estado inicial
             Opc_Pedra.Image = Properties.Resources.mao;
             Opc_Papel.Image = Properties.Resources.papel_de_mao;
             Opc_Tesoura.Image = Properties.Resources.tesouras;

@@ -12,6 +12,7 @@ namespace JoKenPo_2_roletaRussa
         public Frm_Identificacao()
         {
             InitializeComponent();
+            this.AcceptButton = Btn_Entrar;
         }
 
         private void Btn_Sair_Click(object sender, EventArgs e)

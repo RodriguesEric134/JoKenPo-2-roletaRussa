@@ -16,9 +16,20 @@ namespace JoKenPo_2_roletaRussa
         {
             InitializeComponent();
             Image MyImage = (Image)global::JoKenPo_2_roletaRussa.Properties.Resources.ResourceManager.GetObject(nomeImagem);
-            Pic_Imagem.Image = MyImage;
+            Pic_Resultado.Image = MyImage;
             Lbl_Resultado.Text = mensagem;
         }
-        
+
+        private void Btn_Menu_Click(object sender, EventArgs e)
+        {
+            // Fecha todos os formulários abertos
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name != "Frm_Identificacao") // Não fecha o Frm_Identificacao ainda
+                {
+                    form.Close();
+                }
+            }        
+        }
     }
 }

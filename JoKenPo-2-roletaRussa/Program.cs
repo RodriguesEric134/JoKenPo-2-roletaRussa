@@ -17,6 +17,8 @@ namespace JoKenPo_2_roletaRussa
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Frm_Identificacao());
+            
         }
+        
     }
 }

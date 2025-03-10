@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,65 +6,74 @@ namespace JoKenPo_2_roletaRussa
 {
 
     public partial class Frm_Roleta : Form
-    {        
-        private PictureBox opcaoImagem;
+    {
+        private string jogador;
+        private int tentativas = 6; // Chance inicial: 1 em 6
         private Random random = new Random();
 
-        public Frm_Roleta(string jogador, PictureBox opcaoImagem)
+        // Propriedade para armazenar o resultado da roleta russa
+        public string ResultadoRoleta { get; private set; }
+
+        public Frm_Roleta(string jogador)
         {
-            InitializeComponent();                      
+            InitializeComponent();
+            this.jogador = jogador;
+            InicializarInterface();
+            JogarRoletaRussa();
         }
 
-        public void JogarRoletaRussa(string jogador)
+        private void InicializarInterface()
         {
-            // Exibe o jogador ou bot na label
+            // Configura as labels e a imagem inicial
             Lbl_ExibeResultado.Text = $"{jogador} Perdeu!";
             Lbl_ExibeRoleta.Text = $"{jogador} joga a roleta russa";
+            pictureBox1.Image = Properties.Resources.roleta_russa; // Imagem padrão da roleta
+        }
 
-            // Simula a roleta russa com um número aleatório entre 1 e 6
-            int resultadoRoleta = random.Next(1,7);  // 1 a 6
+        private async void JogarRoletaRussa()
+        {
+            // Simula a roleta russa com uma chance fixa de 1 em 6
+            int resultadoRoleta = random.Next(1, 7); // Número aleatório entre 1 e 6
 
-            // A munição está na posição 1
             if (resultadoRoleta == 1)
             {
                 // Se a roleta disparar
+                Lbl_ExibeRoleta.Text = $"A roleta russa disparou! {jogador} foi derrotado!";
+                pictureBox1.Image = Properties.Resources.roleta_russa_tiro; // Imagem do tiro
+                ResultadoRoleta = "Derrota"; // Define o resultado como derrota
+
+                // Aguarda 3 segundos antes de exibir o formulário de resultado
+                await Task.Delay(3000); // Delay de 3 segundos
+
+                // Verifica quem morreu (jogador ou bot)
                 if (jogador == "Jogador")
                 {
-                    Lbl_ExibeRoleta.Text = "O Jogador foi derrotado!";
-                    // Exibe a imagem de tiro
-                    opcaoImagem.Image = Properties.Resources.roleta_russa_tiro;
-                    MessageBox.Show("A roleta russa disparou! Você perdeu!");
-                    Frm_Resultado DB = new Frm_Resultado("morreu", "Jogador Perdeu!");
-                    DB.ShowDialog();
+                    // Jogador morreu
+                    Frm_Resultado resultadoForm = new Frm_Resultado("morreu", $"{jogador} foi derrotado! 💀");
+                    resultadoForm.ShowDialog();
                 }
                 else
                 {
-                    Lbl_ExibeRoleta.Text = "O Bot foi derrotado!";
-                    // Exibe a imagem de tiro
-                    opcaoImagem.Image = Properties.Resources.roleta_russa_tiro;
-                    MessageBox.Show("A roleta russa disparou! O Bot perdeu!");
-                    Frm_Resultado DB = new Frm_Resultado("Ganhou", "Jogador ganhou!");
-                    DB.ShowDialog();
+                    // Bot morreu
+                    Frm_Resultado resultadoForm = new Frm_Resultado("ganhou", $"Bot derrotado! Jogador sobrevive! 🎉");
+                    resultadoForm.ShowDialog();
                 }
             }
             else
             {
                 // Se a roleta não disparar
-                if (jogador == "Jogador")
-                {
-                    Lbl_ExibeRoleta.Text = "A roleta russa não disparou. Você volta a jogar!";
-                    // Exibe a imagem sem tiro
-                    opcaoImagem.Image = Properties.Resources.roleta_russa_sem_tiro;
-                    // O jogador volta para o jogo de jokenpo
-                }
-                else
-                {
-                    Lbl_ExibeRoleta.Text = "A roleta russa não disparou. O Bot volta a jogar!";
-                    // Exibe a imagem sem tiro
-                    opcaoImagem.Image = Properties.Resources.roleta_russa_sem_tiro;
-                    // O bot volta para o jogo de jokenpo
-                }
+                Lbl_ExibeRoleta.Text = $"A roleta russa não disparou. {jogador} volta a jogar!";
+                pictureBox1.Image = Properties.Resources.roleta_russa_sem_tiro; // Imagem sem tiro
+                ResultadoRoleta = "Sobreviveu"; // Define o resultado como sobrevivência
+
+                // Aguarda 3 segundos antes de fechar o formulário
+                await Task.Delay(3000); // Delay de 3 segundos
             }
         }
+        private void Frm_Roleta_Load(object sender, EventArgs e)
+        {
+            // Executa a roleta russa quando o formulário é carregado
+            JogarRoletaRussa();
+        }
     }
-}    
+}
