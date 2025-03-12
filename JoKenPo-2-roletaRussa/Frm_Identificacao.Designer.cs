@@ -74,6 +74,7 @@
             this.Txb_Nome.Name = "Txb_Nome";
             this.Txb_Nome.Size = new System.Drawing.Size(213, 20);
             this.Txb_Nome.TabIndex = 3;
+            this.Txb_Nome.TextChanged += new System.EventHandler(this.Txb_Nome_TextChanged);
             // 
             // Btn_Entrar
             // 
