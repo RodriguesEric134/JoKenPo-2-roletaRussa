@@ -32,7 +32,7 @@ Este é um jogo de Jokenpô com uma mecânica adicional de **Roleta Russa**, tra
 ---
 👨‍💻 **Desenvolvido por:** [Eric Rodrigues]  
 📧 **Contato:** rodrigues.ericcarvalho@gmail.com  
-📌 **GitHub:** [RodriguesEric134](github.com/RodriguesEric134)  
+📌 **GitHub:** [RodriguesEric134](https://github.com/RodriguesEric134)  
 ---
 
 
