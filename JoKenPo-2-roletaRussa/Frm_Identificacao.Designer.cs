@@ -35,6 +35,7 @@
             this.Txb_Nome = new System.Windows.Forms.TextBox();
             this.Btn_Entrar = new System.Windows.Forms.Button();
             this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Txt_Ranking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             // 
             // Btn_Entrar
             // 
-            this.Btn_Entrar.Location = new System.Drawing.Point(342, 214);
+            this.Btn_Entrar.Location = new System.Drawing.Point(337, 214);
             this.Btn_Entrar.Name = "Btn_Entrar";
             this.Btn_Entrar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Entrar.TabIndex = 4;
@@ -96,11 +97,22 @@
             this.Btn_Sair.UseVisualStyleBackColor = true;
             this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
             // 
+            // Txt_Ranking
+            // 
+            this.Txt_Ranking.Location = new System.Drawing.Point(164, 214);
+            this.Txt_Ranking.Name = "Txt_Ranking";
+            this.Txt_Ranking.Size = new System.Drawing.Size(98, 23);
+            this.Txt_Ranking.TabIndex = 6;
+            this.Txt_Ranking.Text = "Top jogadores";
+            this.Txt_Ranking.UseVisualStyleBackColor = true;
+            this.Txt_Ranking.Click += new System.EventHandler(this.Txt_Ranking_Click);
+            // 
             // Frm_Identificacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 249);
+            this.Controls.Add(this.Txt_Ranking);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Entrar);
             this.Controls.Add(this.Txb_Nome);
@@ -127,5 +139,6 @@
         private System.Windows.Forms.TextBox Txb_Nome;
         private System.Windows.Forms.Button Btn_Entrar;
         private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Txt_Ranking;
     }
 }

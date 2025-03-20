@@ -58,6 +58,12 @@
     <Compile Include="Frm_Identificacao.Designer.cs">
       <DependentUpon>Frm_Identificacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Ranking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Ranking.Designer.cs">
+      <DependentUpon>Frm_Ranking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Resultado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Identificacao.resx">
       <DependentUpon>Frm_Identificacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Ranking.resx">
+      <DependentUpon>Frm_Ranking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Resultado.resx">
       <DependentUpon>Frm_Resultado.cs</DependentUpon>
@@ -141,6 +150,8 @@
     <Content Include="IMG\ganhou.jpg" />
     <Content Include="IMG\morreu.gif" />
     <Content Include="IMG\pedra-papel-tesoura.png" />
+    <None Include="IMG\RankingPTexto.JPG" />
+    <None Include="IMG\RankingPTextoCerto.JPG" />
     <Content Include="IMG\roleta-russa-sem-tiro.JPG" />
     <Content Include="IMG\roleta-russa-tiro.JPG" />
     <Content Include="IMG\roleta-russa.jpg" />

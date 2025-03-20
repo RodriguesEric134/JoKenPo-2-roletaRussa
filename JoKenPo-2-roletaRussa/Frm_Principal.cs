@@ -7,16 +7,23 @@ namespace JoKenPo_2_roletaRussa
 {
     public partial class Frm_Principal : Form
     {
+        //instancia dicionário
         private Dictionary<string, (int vitórias, int empates, int derrotas)> jogadores;
+        //instancia nome do jogador
         public string NomeJogador { get; set; }
+        //instancia opções selecionadas como uma lista
         private List<string> opcoesSelecionadas = new List<string>();
+        //instancia opções selecionadas do bot como uma lista
         private List<string> opcoesBot = new List<string>();
+        //instancia o método randômico
         private Random random = new Random();
+        //declara inicialmente a fase final como falso
         private bool faseFinal = false;
 
-
+        //lista das possíveis opções 
         List<string> opcoes = new List<string> { "pedra", "papel", "tesoura" };
 
+        //inicializa formulário com o argumento do dicionário
         public Frm_Principal(Dictionary<string, (int, int, int)> jogadoresRecebido, string nomeJogador)
         {
             InitializeComponent();
@@ -53,10 +60,12 @@ namespace JoKenPo_2_roletaRussa
             AtualizarNome(); // Atualiza a exibição do nome e pontuação
         }
 
+        //Clique das jogadas disponíveis
         private void Opc_Pedra_Click(object sender, EventArgs e) => SelecionarOpcao("pedra");
         private void Opc_Papel_Click(object sender, EventArgs e) => SelecionarOpcao("papel");
         private void Opc_Tesoura_Click(object sender, EventArgs e) => SelecionarOpcao("tesoura");
 
+        //método para selecionar opção
         private void SelecionarOpcao(string nome)
         {
             if (!faseFinal)

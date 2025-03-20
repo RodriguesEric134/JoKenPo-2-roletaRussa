@@ -163,6 +163,16 @@ namespace JoKenPo_2_roletaRussa.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RankingPTextoCerto {
+            get {
+                object obj = ResourceManager.GetObject("RankingPTextoCerto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap roleta_russa {
             get {
                 object obj = ResourceManager.GetObject("roleta_russa", resourceCulture);
