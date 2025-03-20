@@ -8,7 +8,6 @@ Este é um jogo de Jokenpô com uma mecânica adicional de **Roleta Russa**, tra
 - **Fase Final:** Ambos refinam sua escolha para uma opção final entre as duas selecionadas anteriormente.
 - **Decisão do Vencedor:** Segue as regras tradicionais do Jokenpô.
 - **Roleta Russa:** O jogador que perder entra na Roleta Russa com um tambor de 6 espaços e 1 bala. Se sobreviver, continua jogando.
-- **Histórico de Jogadas:** O bot analisa as jogadas passadas para tentar prever a próxima escolha do jogador.
 - **Sistema de Pontuação:** Vitórias, empates e derrotas são registradas.
 
 ## Tecnologias Utilizadas
@@ -22,4 +21,22 @@ Este é um jogo de Jokenpô com uma mecânica adicional de **Roleta Russa**, tra
 3. Interaja com os botões para escolher suas opções no Jokenpô.
 4. Caso perca, participe da Roleta Russa.
 5. O jogo continuará até que uma condição de derrota seja atingida.
+
+## Implementações futuras
+1. **Histórico de Jogadas:** O bot analisa as jogadas passadas para tentar prever a próxima escolha do jogador.
+2. Implementação de um modo multiplayer.
+3. Adição de efeitos sonoros para aumentar a imersão.
+4. Opção de escolha de dificuldade para o bot.
+
+## Autor  
+---
+👨‍💻 **Desenvolvido por:** [Eric Rodrigues]  
+📧 **Contato:** rodrigues.ericcarvalho@gmail.com  
+📌 **GitHub:** [RodriguesEric134](github.com/RodriguesEric134)  
+---
+
+
+
+
+
 
