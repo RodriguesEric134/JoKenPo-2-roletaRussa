@@ -45,7 +45,8 @@ namespace JoKenPo_2_roletaRussa
                 ResultadoRoleta = "Derrota";
 
                 // Espera 3 segundos para o usuário entender o que aconteceu
-                await Task.Delay(3000); 
+                await Task.Delay(3000);
+                
                 
                 // Verifica quem morreu (jogador ou bot)
                 if (jogador == "Jogador")
@@ -70,8 +71,9 @@ namespace JoKenPo_2_roletaRussa
                 pictureBox1.Image = Properties.Resources.roleta_russa_sem_tiro; 
                 ResultadoRoleta = "Sobreviveu"; 
 
-                // Espera 3 segundos para o usuário entender o que aconteceu
-                await Task.Delay(3000); 
+                // Espera 2 segundos e 700 milésimos para mostrar que o tiro não disparou. Fecha automaticamente 
+                await Task.Delay(2700); 
+                this.Close();
                 
             }
         }
