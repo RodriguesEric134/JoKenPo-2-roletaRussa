@@ -54,6 +54,7 @@
             this.Txt_Venc1.TabIndex = 1;
             this.Txt_Venc1.Text = "Vencedor 1";
             this.Txt_Venc1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            
             // 
             // Txt_Venc3
             // 

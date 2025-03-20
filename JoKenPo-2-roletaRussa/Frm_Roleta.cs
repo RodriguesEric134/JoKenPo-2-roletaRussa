@@ -22,6 +22,7 @@ namespace JoKenPo_2_roletaRussa
             JogarRoletaRussa();
         }
 
+        //Sim, ele inicializa a interface, como advinhou?
         private void InicializarInterface()
         {
             // Configura as labels e a imagem inicial
@@ -30,20 +31,21 @@ namespace JoKenPo_2_roletaRussa
             pictureBox1.Image = Properties.Resources.roleta_russa; // Imagem padrão da roleta
         }
 
+        // Simula a roleta russa com uma chance fixa de 1 em 6
         private async void JogarRoletaRussa()
         {
-            // Simula a roleta russa com uma chance fixa de 1 em 6
-            int resultadoRoleta = random.Next(1, 7); // Número aleatório entre 1 e 6
+            
+            int resultadoRoleta = random.Next(1, 7);
 
             if (resultadoRoleta == 1)
             {
                 // Se a roleta disparar
                 Lbl_ExibeRoleta.Text = $"A roleta russa disparou! {jogador} foi derrotado!";
-                pictureBox1.Image = Properties.Resources.roleta_russa_tiro; // Imagem do tiro
-                ResultadoRoleta = "Derrota"; // Define o resultado como derrota
+                pictureBox1.Image = Properties.Resources.roleta_russa_tiro;
+                ResultadoRoleta = "Derrota";
 
-                // Aguarda 3 segundos antes de exibir o formulário de resultado
-                await Task.Delay(3000); // Delay de 3 segundos
+                // Espera 3 segundos para o usuário entender o que aconteceu
+                await Task.Delay(3000); 
                 
                 // Verifica quem morreu (jogador ou bot)
                 if (jogador == "Jogador")
@@ -65,11 +67,11 @@ namespace JoKenPo_2_roletaRussa
             {
                 // Se a roleta não disparar
                 Lbl_ExibeRoleta.Text = $"A roleta russa não disparou. {jogador} volta a jogar!";
-                pictureBox1.Image = Properties.Resources.roleta_russa_sem_tiro; // Imagem sem tiro
-                ResultadoRoleta = "Sobreviveu"; // Define o resultado como sobrevivência
+                pictureBox1.Image = Properties.Resources.roleta_russa_sem_tiro; 
+                ResultadoRoleta = "Sobreviveu"; 
 
-                // Aguarda 3 segundos antes de fechar o formulário
-                await Task.Delay(3000); // Delay de 3 segundos
+                // Espera 3 segundos para o usuário entender o que aconteceu
+                await Task.Delay(3000); 
                 
             }
         }

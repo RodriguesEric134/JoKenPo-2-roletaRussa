@@ -12,6 +12,7 @@ namespace JoKenPo_2_roletaRussa
 {
     public partial class Frm_Resultado : Form
     {
+        //inicializa resultado com parâmetros nomeImagem e mensagem para possível alteração
         public Frm_Resultado(string nomeImagem, string mensagem)
         {
             InitializeComponent();
@@ -20,12 +21,13 @@ namespace JoKenPo_2_roletaRussa
             Lbl_Resultado.Text = mensagem;
         }
 
+        //fecha todos os menus menos o de identificação para possibilidade de novos usuários
         private void Btn_Menu_Click(object sender, EventArgs e)
         {
             // Fecha todos os formulários abertos
             foreach (Form form in Application.OpenForms)
             {
-                if (form.Name != "Frm_Identificacao") // Não fecha o Frm_Identificacao ainda
+                if (form.Name != "Frm_Identificacao")
                 {
                     form.Close();
                 }
