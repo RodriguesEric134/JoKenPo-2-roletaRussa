@@ -1,7 +1,7 @@
 # Jokenpô com Roleta Russa
 
 ## Descrição
-Este é um jogo de Jokenpô com uma mecânica adicional de **Roleta Russa**, trazendo um elemento de suspense e estratégia. O jogo possui duas fases de escolha, um sistema de previsão do bot e um modo de penalidade para o jogador derrotado.
+Este é um jogo de Jokenpô com uma mecânica adicional de **Roleta Russa**, trazendo um elemento de suspense e estratégia. O jogo possui duas fases de escolha e um modo de penalidade para o jogador derrotado.
 
 ## Funcionalidades
 - **Fase Inicial:** O jogador e o bot escolhem **duas opções** entre pedra, papel e tesoura.
