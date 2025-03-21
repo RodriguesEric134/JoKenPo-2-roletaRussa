@@ -9,14 +9,19 @@ namespace JoKenPo_2_roletaRussa
     {
         //instancia dicionário
         private Dictionary<string, (int vitórias, int empates, int derrotas)> jogadores;
+        //instancia o método randômico
+        private static Random random = new Random();
+        //vários nomes de bot
+        private static List<string> nomesBots = new List<string> { "Bot Jorje", "Bot 20comer", "Bot 70correr", "Bot Zé", "Bot Turbo", "Bot Flash" };
+        // Escolher um nome aleatoriamente
+        string nomeBot = nomesBots[random.Next(nomesBots.Count)];
         //instancia nome do jogador
         public string NomeJogador { get; set; }
         //instancia opções selecionadas como uma lista
         private List<string> opcoesSelecionadas = new List<string>();
         //instancia opções selecionadas do bot como uma lista
         private List<string> opcoesBot = new List<string>();
-        //instancia o método randômico
-        private Random random = new Random();
+        
         //declara inicialmente a fase final como falso
         private bool faseFinal = false;
 
@@ -39,6 +44,7 @@ namespace JoKenPo_2_roletaRussa
             {
                 var (vitorias, empates, derrotas) = jogadores[NomeJogador];
                 Lbl_ExibeNome.Text = $"Jogador: {NomeJogador} \n| Vitórias: {vitorias} | Empates: {empates} | Derrotas: {derrotas}";
+                Lbl_NomeBot.Text = $"{nomeBot}";
             }
             else
             {

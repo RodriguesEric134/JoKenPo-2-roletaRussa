@@ -39,9 +39,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.RankingPTextoCerto;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(469, 316);
+            this.pictureBox1.Size = new System.Drawing.Size(469, 318);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -54,7 +54,6 @@
             this.Txt_Venc1.TabIndex = 1;
             this.Txt_Venc1.Text = "Vencedor 1";
             this.Txt_Venc1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            
             // 
             // Txt_Venc3
             // 
@@ -80,7 +79,7 @@
             this.Btn_Sair.Name = "Btn_Sair";
             this.Btn_Sair.Size = new System.Drawing.Size(62, 26);
             this.Btn_Sair.TabIndex = 4;
-            this.Btn_Sair.Text = "Sair";
+            this.Btn_Sair.Text = "Fechar";
             this.Btn_Sair.UseVisualStyleBackColor = true;
             this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
             // 

@@ -53,11 +53,11 @@
             // 
             this.Lbl_Identifica.AutoSize = true;
             this.Lbl_Identifica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Identifica.Location = new System.Drawing.Point(11, 9);
+            this.Lbl_Identifica.Location = new System.Drawing.Point(115, 9);
             this.Lbl_Identifica.Name = "Lbl_Identifica";
-            this.Lbl_Identifica.Size = new System.Drawing.Size(407, 16);
+            this.Lbl_Identifica.Size = new System.Drawing.Size(199, 16);
             this.Lbl_Identifica.TabIndex = 1;
-            this.Lbl_Identifica.Text = "Bem-Vindo ao JoKenPo 2.0! Temos uma surpresa no final!";
+            this.Lbl_Identifica.Text = "Bem-Vindo ao JoKenPo 2.0!";
             // 
             // Lbl_Nome
             // 
@@ -99,6 +99,7 @@
             // 
             // Txt_Ranking
             // 
+            this.Txt_Ranking.ImageKey = "(nenhum/a)";
             this.Txt_Ranking.Location = new System.Drawing.Point(164, 214);
             this.Txt_Ranking.Name = "Txt_Ranking";
             this.Txt_Ranking.Size = new System.Drawing.Size(98, 23);

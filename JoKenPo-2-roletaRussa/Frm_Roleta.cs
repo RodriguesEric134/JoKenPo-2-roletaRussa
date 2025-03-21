@@ -7,8 +7,8 @@ namespace JoKenPo_2_roletaRussa
 
     public partial class Frm_Roleta : Form
     {
-        private string jogador;
-       
+        private string jogador;         
+
         private Random random = new Random();
 
         // Propriedade para armazenar o resultado da roleta russa

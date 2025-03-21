@@ -49,20 +49,19 @@
             // Lbl_ExibeNome
             // 
             this.Lbl_ExibeNome.AutoSize = true;
-            this.Lbl_ExibeNome.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ExibeNome.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_ExibeNome.Location = new System.Drawing.Point(12, 13);
             this.Lbl_ExibeNome.Name = "Lbl_ExibeNome";
-            this.Lbl_ExibeNome.Size = new System.Drawing.Size(67, 21);
+            this.Lbl_ExibeNome.Size = new System.Drawing.Size(64, 20);
             this.Lbl_ExibeNome.TabIndex = 3;
             this.Lbl_ExibeNome.Text = "Jogador:";
             // 
             // Lbl_NomeBot
             // 
-            this.Lbl_NomeBot.AutoSize = true;
-            this.Lbl_NomeBot.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_NomeBot.Location = new System.Drawing.Point(344, 13);
+            this.Lbl_NomeBot.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_NomeBot.Location = new System.Drawing.Point(330, 13);
             this.Lbl_NomeBot.Name = "Lbl_NomeBot";
-            this.Lbl_NomeBot.Size = new System.Drawing.Size(33, 21);
+            this.Lbl_NomeBot.Size = new System.Drawing.Size(108, 21);
             this.Lbl_NomeBot.TabIndex = 7;
             this.Lbl_NomeBot.Text = "Bot";
             // 
@@ -70,7 +69,7 @@
             // 
             this.Opc_Tesoura_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Tesoura_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.tesouras;
-            this.Opc_Tesoura_Bot.Location = new System.Drawing.Point(282, 279);
+            this.Opc_Tesoura_Bot.Location = new System.Drawing.Point(348, 279);
             this.Opc_Tesoura_Bot.Name = "Opc_Tesoura_Bot";
             this.Opc_Tesoura_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Tesoura_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +80,7 @@
             // 
             this.Opc_Papel_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Papel_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.papel_de_mao;
-            this.Opc_Papel_Bot.Location = new System.Drawing.Point(282, 183);
+            this.Opc_Papel_Bot.Location = new System.Drawing.Point(348, 183);
             this.Opc_Papel_Bot.Name = "Opc_Papel_Bot";
             this.Opc_Papel_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Papel_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,7 +91,7 @@
             // 
             this.Opc_Pedra_Bot.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Opc_Pedra_Bot.Image = global::JoKenPo_2_roletaRussa.Properties.Resources.mao;
-            this.Opc_Pedra_Bot.Location = new System.Drawing.Point(282, 87);
+            this.Opc_Pedra_Bot.Location = new System.Drawing.Point(348, 87);
             this.Opc_Pedra_Bot.Name = "Opc_Pedra_Bot";
             this.Opc_Pedra_Bot.Size = new System.Drawing.Size(90, 90);
             this.Opc_Pedra_Bot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,9 +138,9 @@
             // 
             this.Lbl_X.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_X.ForeColor = System.Drawing.Color.Red;
-            this.Lbl_X.Location = new System.Drawing.Point(155, 192);
+            this.Lbl_X.Location = new System.Drawing.Point(187, 200);
             this.Lbl_X.Name = "Lbl_X";
-            this.Lbl_X.Size = new System.Drawing.Size(73, 73);
+            this.Lbl_X.Size = new System.Drawing.Size(68, 73);
             this.Lbl_X.TabIndex = 8;
             this.Lbl_X.Text = "X";
             // 
@@ -149,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 397);
+            this.ClientSize = new System.Drawing.Size(450, 397);
             this.Controls.Add(this.Lbl_X);
             this.Controls.Add(this.Lbl_NomeBot);
             this.Controls.Add(this.Opc_Tesoura_Bot);
