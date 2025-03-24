@@ -100,7 +100,7 @@
             // Txt_Ranking
             // 
             this.Txt_Ranking.ImageKey = "(nenhum/a)";
-            this.Txt_Ranking.Location = new System.Drawing.Point(164, 214);
+            this.Txt_Ranking.Location = new System.Drawing.Point(165, 214);
             this.Txt_Ranking.Name = "Txt_Ranking";
             this.Txt_Ranking.Size = new System.Drawing.Size(98, 23);
             this.Txt_Ranking.TabIndex = 6;

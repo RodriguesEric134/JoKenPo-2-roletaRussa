@@ -72,6 +72,8 @@
             this.Controls.Add(this.Lbl_ExibeRoleta);
             this.Controls.Add(this.Lbl_ExibeResultado);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_Roleta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Roleta Russa";

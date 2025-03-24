@@ -159,6 +159,8 @@
             this.Controls.Add(this.Opc_Papel);
             this.Controls.Add(this.Opc_Pedra);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jokenpo 2.0 com Roleta Russa";

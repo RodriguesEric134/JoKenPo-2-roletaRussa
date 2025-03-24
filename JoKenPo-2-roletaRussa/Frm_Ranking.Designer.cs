@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Ranking));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Txt_Venc1 = new System.Windows.Forms.Label();
             this.Txt_Venc3 = new System.Windows.Forms.Label();
@@ -93,6 +94,7 @@
             this.Controls.Add(this.Txt_Venc3);
             this.Controls.Add(this.Txt_Venc1);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Ranking";
