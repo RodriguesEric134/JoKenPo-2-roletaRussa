@@ -99,46 +99,8 @@ namespace JoKenPo_2_roletaRussa
 
         private void JogadaBotInicial()
         {
-            // Lógica inteligente para seleção das mãos do bot
-            if (opcoesSelecionadas.Count == 0)
-            {
-                // Se o jogador ainda não escolheu, seleciona duas mãos diferentes
-                opcoesBot = opcoes.OrderBy(x => random.Next()).Take(2).ToList();
-            }
-            else
-            {
-                // Se o jogador já escolheu uma mão, seleciona uma mão que pode vencer e outra que pode perder
-                string primeiraEscolhaJogador = opcoesSelecionadas[0];
-                string maoVencedora = "";
-                string maoPerdedora = "";
-
-                switch (primeiraEscolhaJogador)
-                {
-                    case "pedra":
-                        maoVencedora = "papel";
-                        maoPerdedora = "tesoura";
-                        break;
-                    case "papel":
-                        maoVencedora = "tesoura";
-                        maoPerdedora = "pedra";
-                        break;
-                    case "tesoura":
-                        maoVencedora = "pedra";
-                        maoPerdedora = "papel";
-                        break;
-                }
-
-                // 70% de chance de incluir a mão vencedora
-                if (random.Next(100) < 70)
-                {
-                    opcoesBot = new List<string> { maoVencedora, maoPerdedora };
-                }
-                else
-                {
-                    opcoesBot = new List<string> { maoPerdedora, maoVencedora };
-                }
-            }
-
+            // Bot seleciona 2 mãos aleatoriamente
+            opcoesBot = opcoes.OrderBy(x => random.Next()).Take(2).ToList();
             foreach (string opcao in opcoesBot)
             {
                 ExibirImagemEscolha(opcao, false);
@@ -147,43 +109,8 @@ namespace JoKenPo_2_roletaRussa
 
         private void EscolhaFinalBot()
         {
-            // Lógica inteligente para escolha final do bot
-            string escolhaJogador = opcoesSelecionadas[0];
-            string escolhaFinal = "";
-
-            // 60% de chance de escolher a mão que vence
-            if (random.Next(100) < 60)
-            {
-                switch (escolhaJogador)
-                {
-                    case "pedra":
-                        escolhaFinal = "papel";
-                        break;
-                    case "papel":
-                        escolhaFinal = "tesoura";
-                        break;
-                    case "tesoura":
-                        escolhaFinal = "pedra";
-                        break;
-                }
-            }
-            else
-            {
-                // 40% de chance de escolher a mão que perde
-                switch (escolhaJogador)
-                {
-                    case "pedra":
-                        escolhaFinal = "tesoura";
-                        break;
-                    case "papel":
-                        escolhaFinal = "pedra";
-                        break;
-                    case "tesoura":
-                        escolhaFinal = "papel";
-                        break;
-                }
-            }
-
+            // Bot escolhe 1 mão entre as 2 selecionadas
+            string escolhaFinal = opcoesBot[random.Next(opcoesBot.Count)];
             DefinirEscolhaFinal(escolhaFinal, false);
             CompararEscolhas();
         }
