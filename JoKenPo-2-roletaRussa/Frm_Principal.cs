@@ -13,7 +13,7 @@ namespace JoKenPo_2_roletaRussa
         //instancia o método randômico
         private static Random random = new Random();
         //vários nomes de bot
-        private static List<string> nomesBots = new List<string> { "Bot Jorje", "Bot 20comer", "Bot 70correr", "Bot Zé", "Bot Turbo", "Bot Flash" };
+        private static List<string> nomesBots = new List<string> { "Bot Jorje", "Bot 20comer", "Bot 70correr", "Bot Zé", "Bot Turbo", "Bot Flash", "Bot jão" };
         // Escolher um nome aleatoriamente
         string nomeBot = nomesBots[random.Next(nomesBots.Count)];
         //instancia nome do jogador

@@ -30,7 +30,7 @@ namespace JoKenPo_2_roletaRussa
             Txt_Venc3.Text = ranking.Count > 2 ? $"{ranking[2].Key}: {ranking[2].Value.vitórias} vitórias" : "3º - Nenhum jogador";
         }
 
-        //fecha aplicação
+        //fecha a janela
         private void Btn_Sair_Click(object sender, EventArgs e)
         {
             this.Close();
